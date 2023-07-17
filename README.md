@@ -12,7 +12,7 @@ In this project we have 3 npm workspaces to fix:
 
   ```
   *Example*:
-  Input:
+  Given a dynamodb output:
   - [
     {
       username: 'Rafe Adler',
