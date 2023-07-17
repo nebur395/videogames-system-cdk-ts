@@ -1,0 +1,25 @@
+{
+  "name": "videogames-system-cdk-ts",
+  "description": "Basic infrastructure for a project with AWS CDK and Node workspaces",
+  "version": "1.0.0",
+  "author": "Ruben Moreno",
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "fullClean": "npm run clean && npm run clean:dependencies",
+    "clean": "npm run clean --workspaces && npm run clean:cdk",
+    "clean:dependencies": "rimraf node_modules",
+    "clean:cdk": "rimraf cdk.out",
+    "lint": "npm run lint --workspaces",
+    "lint:fix": "npm run lint:fix --workspaces",
+    "test": "npm run test --workspaces",
+    "test:watch": "npm run test:watch --workspaces",
+    "cdk": "cdk synth '*' --ci --require-approval never",
+    "checkSolution": "npm run clean && npm run build && npm run cdk && npm run test && npm run lint"
+  },
+  "devDependencies": {
+    "aws-cdk": "2.87.0"
+  },
+  "workspaces": [
+    "./videogames-system/*"
+  ]
+}
