@@ -27,7 +27,8 @@ export class Handler {
   public async execute(event: Event): Promise<HandlerOutput> {
     console.log('Starting');
 
-    // TODO
+    Promise.all(event.eventsList.map(async (currentVideogame) =>
+      this.domain.execute(currentVideogame)));
 
     console.info('Finishing');
 

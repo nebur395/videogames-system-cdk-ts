@@ -27,8 +27,18 @@ export class Domain {
   public async execute(): Promise<DomainOutput> {
     const listOfUsers = await this.awsDynamoDB.getListOfUsers();
 
-    // TODO
+    const validUsers = listOfUsers.map(({ username }) => username).filter((username) => {
+      const count = listOfUsers.reduce((previousCount, { username: candidate, platform }) => {
+        if (username === candidate && platform === Platform.ps5) {
+          return previousCount + 1;
+        }
 
-    return [];
+        return previousCount + 0;
+      }, 0);
+
+      return count <= 1;
+    });
+
+    return [ ...new Set(validUsers) ];
   }
 }

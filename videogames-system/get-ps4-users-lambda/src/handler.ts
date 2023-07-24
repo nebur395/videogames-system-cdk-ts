@@ -12,10 +12,10 @@ export class Handler {
   public async execute(): Promise<HandlerOutput> {
     console.log('Starting');
 
-    // TODO
+    const result = await this.domain.execute();
 
     console.info('Finishing');
 
-    return [];
+    return result;
   }
 }

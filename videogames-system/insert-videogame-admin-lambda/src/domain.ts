@@ -23,9 +23,11 @@ export class Domain {
   }
 
   public async execute(videogameAdmin: VideogameAdmin): Promise<void> {
+    const videogameHasAlreadyAdmin = this.awsDynamoDB.checkVideogameHasAdmin(videogameAdmin.videogame);
 
-    // TODO
-
+    if (!videogameHasAlreadyAdmin) {
+      await this.awsDynamoDB.insertVideogameAdmin(videogameAdmin);
+    }
   }
 
   // Gets the list of the existing list of videogames admins
