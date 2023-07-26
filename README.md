@@ -4,7 +4,7 @@ In this project we have 3 npm workspaces to fix:
   1. `aws-resources` It contains the AWS CDK resources: 1 dynamodb table which contains the videogames and 2 lambdas.
 
   **Problem**: This workspace contains some build issues.
-  1. `get-ps4-users-lambda` It contains the source code of a lambda. This lambda has a multi-layer architecture. This lambda
+  2. `get-ps4-users-lambda` It contains the source code of a lambda. This lambda has a multi-layer architecture. This lambda
   gets the list of users are still playing in PS4.
 
   **Problem**: Implement a solution that returns an array of strings containing the names of the existing users in dynamo
