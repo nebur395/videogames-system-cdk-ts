@@ -1,0 +1,19 @@
+[FORMAT]
+max-line-length = 120
+ignore=
+    .git,
+    __pycache__,
+    .venv,
+    build,
+    dist,
+    setup.py,
+    **/package/python/**
+
+[MESSAGES CONTROL]
+disable=
+    missing-module-docstring,
+    duplicate-code,
+    too-many-locals
+
+[DESIGN]
+max-attributes=15
