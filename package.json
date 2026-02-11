@@ -5,7 +5,7 @@
   "author": "Ruben Moreno",
   "scripts": {
     "build": "npm run build --workspaces",
-    "fullClean": "npm run clean && npm run clean:dependencies",
+    "fullClean": "npm run clean",
     "clean": "npm run clean --workspaces && npm run clean:cdk",
     "clean:dependencies": "rimraf node_modules",
     "clean:cdk": "rimraf cdk.out",
