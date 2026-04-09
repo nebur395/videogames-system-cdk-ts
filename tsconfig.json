@@ -1,11 +1,10 @@
 {
-  "extends": "./node_modules/build-tools-typescript/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist/",
-    "lib": [ "es2019" ],
+    "lib": [ "es2023", "dom" ],
     // https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#recommended-node-tsconfig-settings
-    // Node 12 -> ES2019
-    "target": "ES2019",
+    // Node 20 -> ES2023
+    "target": "ES2022",
     "module": "commonjs",
     "esModuleInterop": true,
     "sourceMap": false,
@@ -15,7 +14,12 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
     "resolveJsonModule": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules",

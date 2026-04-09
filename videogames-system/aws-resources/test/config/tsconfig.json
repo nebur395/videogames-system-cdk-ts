@@ -1,14 +1,6 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "sourceMap": true
-  },
-  "include": [
-    "../../cdk/**/*",
-    "../specs/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "isolatedModules": true
+  }
 }

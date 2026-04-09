@@ -1,12 +1,12 @@
-import { AwsDynamoDB } from './data/aws-dynamodb';
+import type { AwsDynamoDB } from './data/aws-dynamodb';
 
 type DomainConfig = {
   readonly awsDynamoDB: AwsDynamoDB;
 };
 
 export enum Platform {
-  ps4 = 'ps4',
-  ps5 = 'ps5'
+  Ps4 = 'Ps4',
+  Ps5 = 'Ps5'
 }
 
 export type User = {
@@ -27,18 +27,20 @@ export class Domain {
   public async execute(): Promise<DomainOutput> {
     const listOfUsers = await this.awsDynamoDB.getListOfUsers();
 
-    const validUsers = listOfUsers.map(({ username }) => username).filter((username) => {
-      const count = listOfUsers.reduce((previousCount, { username: candidate, platform }) => {
-        if (username === candidate && platform === Platform.ps5) {
-          return previousCount + 1;
-        }
+    const validUsers = listOfUsers
+      .map(({ username }) => username)
+      .filter((username) => {
+        const count = listOfUsers.reduce((previousCount, { username: candidate, platform }) => {
+          if (username === candidate && platform === Platform.Ps5) {
+            return previousCount + 1;
+          }
 
-        return previousCount + 0;
-      }, 0);
+          return previousCount + 0;
+        }, 0);
 
-      return count <= 1;
-    });
+        return count <= 1;
+      });
 
-    return [ ...new Set(validUsers) ];
+    return [...new Set(validUsers)];
   }
 }

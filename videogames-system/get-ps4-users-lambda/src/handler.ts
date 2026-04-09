@@ -1,4 +1,4 @@
-import { Domain, DomainOutput } from './domain';
+import type { Domain, DomainOutput } from './domain';
 
 export type HandlerOutput = DomainOutput;
 

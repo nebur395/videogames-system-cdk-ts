@@ -1,14 +1,12 @@
-import { Domain } from './domain';
-import { Handler, HandlerOutput } from './handler';
 import { AwsDynamoDB } from './data/aws-dynamodb';
+import { Domain } from './domain';
+import { Handler, type HandlerOutput } from './handler';
 
 type LambdaEnvironment = {
   DYNAMODB_TABLE_NAME: string;
 };
 
-const {
-  DYNAMODB_TABLE_NAME
-} = process.env as LambdaEnvironment;
+const { DYNAMODB_TABLE_NAME } = process.env as LambdaEnvironment;
 
 const awsDynamoDB = new AwsDynamoDB(DYNAMODB_TABLE_NAME);
 const domain = new Domain({

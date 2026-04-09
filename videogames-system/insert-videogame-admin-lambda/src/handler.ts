@@ -1,8 +1,8 @@
-import { Domain } from './domain';
+import type { Domain } from './domain';
 
 export enum Platform {
-  ps4 = 'ps4',
-  ps5 = 'ps5'
+  Ps4 = 'Ps4',
+  Ps5 = 'Ps5'
 }
 
 export type VideogameAdmin = {
@@ -27,8 +27,7 @@ export class Handler {
   public async execute(event: Event): Promise<HandlerOutput> {
     console.log('Starting');
 
-    Promise.all(event.eventsList.map(async (currentVideogame) =>
-      this.domain.execute(currentVideogame)));
+    Promise.all(event.eventsList.map(async (currentVideogame) => this.domain.execute(currentVideogame)));
 
     console.info('Finishing');
 

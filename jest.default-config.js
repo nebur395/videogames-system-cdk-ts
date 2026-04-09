@@ -1,19 +1,26 @@
-/* eslint-disable no-undef, @typescript-eslint/no-unsafe-assignment */
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('ts-jest/dist/types').JestConfigWithTsJest} */
 module.exports = {
   preset: 'ts-jest',
-  ...require('build-tools-jest'),
-  ...require('build-tools-typescript-jest'),
   testEnvironment: 'node',
   rootDir: '.',
   testMatch: [ '<rootDir>/test/specs/**/*.spec.ts' ],
   coveragePathIgnorePatterns: [ '<rootDir>/test/config' ],
   collectCoverage: false,
+  coverageDirectory: '<rootDir>/test/results/unit/coverage',
   collectCoverageFrom: [ '<rootDir>/cdk/**/*.{ts,js}' ],
   coverageReporters: [[ 'lcov', { projectRoot: '../..' }]],
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/test/config/tsconfig.json'
-    }
-  }
+  transform: {
+    '^.+\\.ts?$': [
+      'ts-jest', {
+        tsconfig: '<rootDir>/test/config/tsconfig.json'
+      }
+    ]
+  },
+  moduleFileExtensions: [
+    'ts',
+    'tsx',
+    'js',
+    'jsx',
+    'json'
+  ]
 };

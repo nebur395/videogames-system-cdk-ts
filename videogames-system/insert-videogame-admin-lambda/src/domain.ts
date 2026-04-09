@@ -1,12 +1,12 @@
-import { AwsDynamoDB } from './data/aws-dynamodb';
+import type { AwsDynamoDB } from './data/aws-dynamodb';
 
 type DomainConfig = {
   readonly awsDynamoDB: AwsDynamoDB;
 };
 
 export enum Platform {
-  ps4 = 'ps4',
-  ps5 = 'ps5'
+  Ps4 = 'Ps4',
+  Ps5 = 'Ps5'
 }
 
 export type VideogameAdmin = {
